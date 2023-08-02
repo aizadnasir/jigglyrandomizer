@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(203, 242, 242);
+            font-family: 'Shrikhand', cursive;
+        }
+
+        h1 {
+            font-size: 5em;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-top: 100px;
+        }
+
+        #vending-machine {
+            width: 100%;
+        }
+
+        button {
+            background-color: transparent;
+            flex-basis: 20em;
+            border: none;
+
+        }
+
+        .container {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 2 px;
+        }
+
+        #jiggly-image {
+            width: 40em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Pick your Jiggly!</h1>
+        <h2>Click the Jiggly machine for your very own surprise Jiggly!</h2>
+    </header>
+    <div class="container">
+        <div class="button">
+            <button type="button">
+                <img id=vending-machine src="https://i.imgur.com/9Hxx2Dv.png" alt="a vending machine">
+            </button>
+        </div>
+        <div class="jiggly-pick">
+            <p>You Get:</p>
+            <img id="jiggly-image" src="https://i.imgur.com/lxYUGAM.png">
+
+        </div>
+    </div>
+    <script>
+
+        const jigglyChoices = ["https://i.imgur.com/pZQhDd5.png", "https://i.imgur.com/PkRJSeS.png", "https://i.imgur.com/bMlK5XJ.png", "https://i.imgur.com/TiFBYrY.png", "https://i.imgur.com/kh1PdNU.png", "https://i.imgur.com/lxYUGAM.png"];
+
+
+        function randomJiggly() {
+            const random = Math.floor(Math.random() * jigglyChoices.length);
+
+            return jigglyChoices[random];
+        }
+
+
+        function updateJiggly() {
+            const jigglyImage = document.getElementById('jiggly-image');
+
+            jigglyImage.src = randomJiggly();
+
+        }
+
+        document.querySelector('button').addEventListener('click', updateJiggly);
+
+    </script>
+
+</body>
+
+</html>
